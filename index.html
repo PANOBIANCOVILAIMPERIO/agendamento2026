@@ -322,6 +322,7 @@ lista.forEach(a=>{
 div.innerHTML+=`
 <div class="card">
 <b>${a.horario}</b> - ${a.nome} (ID:${a.id})<br>
+Agendado por: ${a.criadoPor}<br>
 <span class="status ${a.status}">${a.status}</span><br>
 ${state.tipo!=="professor"?
 `<button onclick="alterarStatus('${a.idDoc}','mensagem')">Mensagem enviada</button>
