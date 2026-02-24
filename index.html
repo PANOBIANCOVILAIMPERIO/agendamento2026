@@ -173,15 +173,24 @@ function logout(){location.reload();}
 function renderMenu(){
 let m=document.getElementById("menu");
 m.innerHTML="";
-m.innerHTML+=`<button onclick="state.modo=null;renderCalendario()">📆 Calendário</button>`;
-if(state.tipo!=="professor"){
-m.innerHTML+=`<button onclick="state.modo='agendar';renderCalendario()">➕ Agendar</button>`;
-m.innerHTML+=`<button onclick="state.modo='bloqDia';renderCalendario()">🚫 Bloquear Dia</button>`;
-m.innerHTML+=`<button onclick="state.modo='bloqHora';renderCalendario()">⛔ Bloquear Horário</button>`;
-m.innerHTML+=`<button onclick="abrirBusca()">🔎 Buscar por ID</button>`;
+
+function botao(label, modo){
+  return `<button class="${state.modo===modo?'ativo':''}" 
+          onclick="state.modo='${modo}'; state.dataAtual=null; renderMenu(); renderCalendario();">
+          ${label}</button>`;
 }
+
+m.innerHTML += botao("📆 Calendário", null);
+
+if(state.tipo!=="professor"){
+  m.innerHTML += botao("➕ Agendar", "agendar");
+  m.innerHTML += botao("🚫 Bloquear Dia", "bloqDia");
+  m.innerHTML += botao("⛔ Bloquear Horário", "bloqHora");
+  m.innerHTML += `<button onclick="state.modo=null; renderMenu(); abrirBusca()">🔎 Buscar por ID</button>`;
+}
+
 if(state.tipo==="admin"){
-m.innerHTML+=`<button onclick="abrirRecep()">👥 Recepcionistas</button>`;
+  m.innerHTML += `<button onclick="state.modo=null; renderMenu(); abrirRecep()">👥 Recepcionistas</button>`;
 }
 }
 
