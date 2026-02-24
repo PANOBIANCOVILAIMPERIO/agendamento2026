@@ -131,8 +131,17 @@ Promise.all([
 });
 
 function atualizarTela(){
-  if(state.dataAtual) abrirDia(state.dataAtual);
-  else renderCalendario();
+
+  if(state.modo === "bloqDia"){
+    renderCalendario();
+    return;
+  }
+
+  if(state.dataAtual){
+    abrirDia(state.dataAtual);
+  } else {
+    renderCalendario();
+  }
 }
 
 document.getElementById("anoAtual").innerText=new Date().getFullYear();
