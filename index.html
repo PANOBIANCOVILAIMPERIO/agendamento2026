@@ -301,14 +301,27 @@ mostrarLista(data);
 }
 
 function agendar(data,horario){
+
 let nome=prompt("Nome do aluno:");
+if(!nome) return;
+
+let telefone=prompt("Telefone do aluno (somente números):");
+if(!telefone) return;
+
 let id=prompt("ID numérico até 10 dígitos:");
 if(!/^[0-9]{1,10}$/.test(id)) return alert("ID inválido");
+
 let existe=agendamentos.find(a=>a.id===id);
 if(existe && existe.nome!==nome) return alert("ID já vinculado a outro nome");
 
 db.collection("agendamentos").add({
-nome,id,data,horario,status:"pendente",criadoPor:state.nome
+nome,
+telefone,
+id,
+data,
+horario,
+status:"pendente",
+criadoPor:state.nome
 });
 }
 
