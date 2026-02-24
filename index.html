@@ -5,176 +5,60 @@
 <title>Agendamento Avaliação Física - Vila Império</title>
 
 <style>
-body{
-    margin:0;
-    font-family:'Segoe UI',Roboto,Arial,sans-serif;
-    background:#f1f3f4;
-    color:#202124;
-}
-
-/* BOTÕES */
-button{
-    cursor:pointer;
-    padding:8px 14px;
-    margin:4px;
-    border:none;
-    border-radius:8px;
-    background:#e8eaed;
-    font-size:14px;
-    transition:all 0.2s ease;
-}
-button:hover{
-    background:#dadce0;
-}
-
-/* LOGIN */
-.header-login{
-    text-align:center;
-    padding:40px;
-    background:white;
-    box-shadow:0 1px 3px rgba(0,0,0,0.1);
-}
+body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:#f1f3f4;color:#202124;}
+button{cursor:pointer;padding:8px 14px;margin:4px;border:none;border-radius:8px;background:#e8eaed;font-size:14px;transition:all 0.2s ease;}
+button:hover{background:#dadce0;}
+.header-login{text-align:center;padding:40px;background:white;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
 .header-login img{max-width:150px}
-
-.login-container{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin-top:60px;
-}
-
-.login-box{
-    width:220px;
-    height:220px;
-    border-radius:16px;
-    background:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-    font-weight:500;
-    box-shadow:0 1px 4px rgba(0,0,0,0.15);
-    transition:all 0.2s ease;
-}
-.login-box:hover{
-    background:#1a73e8;
-    color:white;
-    transform:translateY(-4px);
-}
-
-/* LAYOUT */
-.layout{
-    display:flex;
-    height:100vh;
-}
-
-.sidebar{
-    width:260px;
-    background:white;
-    border-right:1px solid #dadce0;
-    display:flex;
-    flex-direction:column;
-}
-
-.sidebar-header{
-    text-align:center;
-    padding:25px;
-    border-bottom:1px solid #dadce0;
-}
-
-.sidebar button{
-    background:none;
-    text-align:left;
-    padding:14px;
-    font-size:14px;
-    color:#202124;
-}
-.sidebar button:hover{
-    background:#f1f3f4;
-}
-
-.content{
-    flex:1;
-    padding:30px;
-    overflow:auto;
-}
-
-/* CARDS */
-.card{
-    background:white;
-    padding:16px;
-    margin-bottom:14px;
-    border-radius:12px;
-    box-shadow:0 1px 3px rgba(0,0,0,0.15);
-}
-
-/* CALENDÁRIO */
-.cal-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.cal-grid{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:8px;
-}
-
-.dia{
-    padding:12px;
-    text-align:center;
-    border-radius:10px;
-    background:white;
-    cursor:pointer;
-    transition:all 0.2s ease;
-    box-shadow:0 1px 2px rgba(0,0,0,0.1);
-}
-.dia:hover{
-    background:#e8f0fe;
-}
+.login-container{display:flex;justify-content:center;gap:40px;margin-top:60px;}
+.login-box{width:220px;height:220px;border-radius:16px;background:white;display:flex;justify-content:center;align-items:center;font-size:20px;font-weight:500;box-shadow:0 1px 4px rgba(0,0,0,0.15);transition:all 0.2s ease;}
+.login-box:hover{background:#1a73e8;color:white;transform:translateY(-4px);}
+.layout{display:flex;height:100vh;}
+.sidebar{width:260px;background:white;border-right:1px solid #dadce0;display:flex;flex-direction:column;}
+.sidebar-header{text-align:center;padding:25px;border-bottom:1px solid #dadce0;}
+.sidebar button{background:none;text-align:left;padding:14px;font-size:14px;color:#202124;}
+.sidebar button:hover{background:#f1f3f4;}
+.content{flex:1;padding:30px;overflow:auto;}
+.card{background:white;padding:16px;margin-bottom:14px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.15);}
+.cal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+.dia{padding:12px;text-align:center;border-radius:10px;background:white;cursor:pointer;transition:all 0.2s ease;box-shadow:0 1px 2px rgba(0,0,0,0.1);}
+.dia:hover{background:#e8f0fe;}
 .dia.liberado{background:#ffffff;}
 .dia.inativo{background:#f1f3f4;opacity:0.5;}
 .dia.bloqueado{background:#ea4335;color:white;}
-
-/* HORÁRIOS */
-.grid-horarios{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-top:20px;
-}
-
-.horario{
-    padding:10px;
-    border-radius:8px;
-    background:white;
-    border:1px solid #dadce0;
-    transition:all 0.2s ease;
-}
-.horario:hover{
-    background:#e8f0fe;
-}
+.grid-horarios{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
+.horario{padding:10px;border-radius:8px;background:white;border:1px solid #dadce0;transition:all 0.2s ease;}
+.horario:hover{background:#e8f0fe;}
 .horario.ocupado{background:#e0e0e0;}
 .horario.bloqueado{background:#ea4335;color:white;}
-
-/* STATUS */
-.status{
-    padding:4px 10px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:500;
-}
+.status{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:500;}
 .pendente{background:#9aa0a6;color:white;}
 .mensagem{background:#fbbc04;color:black;}
 .confirmado{background:#1a73e8;color:white;}
 .realizado{background:#34a853;color:white;}
 .faltou{background:#ea4335;color:white;}
 </style>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAfJIYu9tE5UWx1IpI0H3X_6_ge1CxQ-2Y",
+  authDomain: "agendamento-panobianco.firebaseapp.com",
+  projectId: "agendamento-panobianco",
+  storageBucket: "agendamento-panobianco.firebasestorage.app",
+  messagingSenderId: "607650485344",
+  appId: "1:607650485344:web:8cfecbdb06e5f1cdcb9f05"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+</script>
 </head>
 <body>
-
 <div id="loginScreen">
 <div class="header-login">
 <img src="logo-panobianco.png">
@@ -215,9 +99,41 @@ modo:null,
 dataAtual:null
 };
 
-let agendamentos=JSON.parse(localStorage.getItem("agendamentos")||"[]");
-let bloqueios=JSON.parse(localStorage.getItem("bloqueios")||"[]");
-let recepcionistas=JSON.parse(localStorage.getItem("recepcionistas")||"[]");
+let agendamentos=[];
+let bloqueios=[];
+let recepcionistas=[];
+let dadosCarregados=false;
+
+/* 🔄 CARREGAMENTO INICIAL FIRESTORE */
+Promise.all([
+  new Promise(res=>{
+    db.collection("agendamentos").onSnapshot(snap=>{
+      agendamentos=snap.docs.map(d=>({idDoc:d.id,...d.data()}));
+      res();
+      if(dadosCarregados) atualizarTela();
+    });
+  }),
+  new Promise(res=>{
+    db.collection("bloqueios").onSnapshot(snap=>{
+      bloqueios=snap.docs.map(d=>({idDoc:d.id,...d.data()}));
+      res();
+      if(dadosCarregados) atualizarTela();
+    });
+  }),
+  new Promise(res=>{
+    db.collection("recepcionistas").onSnapshot(snap=>{
+      recepcionistas=snap.docs.map(d=>({idDoc:d.id,...d.data()}));
+      res();
+    });
+  })
+]).then(()=>{
+  dadosCarregados=true;
+});
+
+function atualizarTela(){
+  if(state.dataAtual) abrirDia(state.dataAtual);
+  else renderCalendario();
+}
 
 document.getElementById("anoAtual").innerText=new Date().getFullYear();
 
@@ -244,7 +160,6 @@ renderMenu();
 renderCalendario();
 }
 function logout(){location.reload();}
-
 /* MENU */
 function renderMenu(){
 let m=document.getElementById("menu");
@@ -296,18 +211,22 @@ grid.appendChild(div);
 }
 
 function clicarDia(data){
-if(state.modo==="bloqDia"){
-let existe=bloqueios.find(b=>b.data===data && b.tipo==="dia");
-if(!existe){
-bloqueios.push({data,tipo:"dia"});
-}else if(state.tipo==="admin"){
-bloqueios=bloqueios.filter(b=>!(b.data===data && b.tipo==="dia"));
-}
-salvar();
-renderCalendario();
-return;
-}
-abrirDia(data);
+
+  if(state.modo==="bloqDia"){
+
+    let existe=bloqueios.find(b=>b.data===data && b.tipo==="dia");
+
+    if(!existe){
+      db.collection("bloqueios").add({data,tipo:"dia"});
+    } else if(state.tipo==="admin"){
+      db.collection("bloqueios").doc(existe.idDoc).delete();
+    }
+
+    // 🔥 FORÇA FICAR NO CALENDÁRIO
+    return;
+  }
+
+  abrirDia(data);
 }
 
 function abrirDia(data){
@@ -323,32 +242,27 @@ main.innerHTML=`<h2>${data}</h2>
 <div class="grid-horarios" id="horarios"></div>
 <div id="lista"></div>`;
 let grid=document.getElementById("horarios");
+
 horarios.forEach(h=>{
 let btn=document.createElement("button");
 btn.className="horario";
 btn.innerText=h;
 let ocupado=agendamentos.find(a=>a.data===data && a.horario===h);
 let bloqueado=bloqueios.find(b=>b.data===data && b.horario===h);
+
 if(ocupado){btn.classList.add("ocupado");btn.disabled=true;}
+
 if(bloqueado){
 btn.classList.add("bloqueado");
 if(state.tipo==="admin"){
-btn.onclick=()=>{
-bloqueios=bloqueios.filter(b=>!(b.data===data && b.horario===h));
-salvar();
-abrirDia(data);
-};
+btn.onclick=()=>db.collection("bloqueios").doc(bloqueado.idDoc).delete();
 }
 }else{
 if(state.modo==="agendar" && !ocupado){
 btn.onclick=()=>agendar(data,h);
 }
 if(state.modo==="bloqHora" && !ocupado){
-btn.onclick=()=>{
-bloqueios.push({data,horario:h,tipo:"hora"});
-salvar();
-abrirDia(data);
-};
+btn.onclick=()=>db.collection("bloqueios").add({data,horario:h,tipo:"hora"});
 }
 }
 grid.appendChild(btn);
@@ -356,22 +270,20 @@ grid.appendChild(btn);
 mostrarLista(data);
 }
 
-/* RESTANTE FUNÇÕES (IGUAIS AO SEU SISTEMA ORIGINAL) */
-
 function agendar(data,horario){
 let nome=prompt("Nome do aluno:");
 let id=prompt("ID numérico até 10 dígitos:");
 if(!/^[0-9]{1,10}$/.test(id)) return alert("ID inválido");
 let existe=agendamentos.find(a=>a.id===id);
 if(existe && existe.nome!==nome) return alert("ID já vinculado a outro nome");
-agendamentos.push({nome,id,data,horario,status:"pendente",criadoPor:state.nome});
-salvar();
-abrirDia(data);
+
+db.collection("agendamentos").add({
+nome,id,data,horario,status:"pendente",criadoPor:state.nome
+});
 }
 
 function mostrarLista(data){
 let lista=agendamentos
-.map((a,i)=>({...a,idx:i}))
 .filter(a=>a.data===data)
 .sort((a,b)=>a.horario.localeCompare(b.horario));
 let div=document.getElementById("lista");
@@ -382,25 +294,23 @@ div.innerHTML+=`
 <b>${a.horario}</b> - ${a.nome} (ID:${a.id})<br>
 <span class="status ${a.status}">${a.status}</span><br>
 ${state.tipo!=="professor"?
-`<button onclick="msg(${a.idx})">Mensagem enviada</button>
-<button onclick="conf(${a.idx})">Presença confirmada</button>
-<button onclick="cancel(${a.idx})">Cancelar</button>`
+`<button onclick="alterarStatus('${a.idDoc}','mensagem')">Mensagem enviada</button>
+<button onclick="alterarStatus('${a.idDoc}','confirmado')">Presença confirmada</button>
+<button onclick="cancelar('${a.idDoc}','${a.criadoPor}')">Cancelar</button>`
 :
-`<button onclick="real(${a.idx})">Avaliação realizada</button>
-<button onclick="falt(${a.idx})">Faltou</button>`}
+`<button onclick="alterarStatus('${a.idDoc}','realizado')">Avaliação realizada</button>
+<button onclick="alterarStatus('${a.idDoc}','faltou')">Faltou</button>`}
 </div>`;
 });
 }
 
-function msg(i){agendamentos[i].status="mensagem";salvar();mostrarLista(state.dataAtual);}
-function conf(i){agendamentos[i].status="confirmado";salvar();mostrarLista(state.dataAtual);}
-function real(i){agendamentos[i].status="realizado";salvar();mostrarLista(state.dataAtual);}
-function falt(i){agendamentos[i].status="faltou";salvar();mostrarLista(state.dataAtual);}
-function cancel(i){
-if(state.tipo==="admin" || agendamentos[i].criadoPor===state.nome){
-agendamentos.splice(i,1);
-salvar();
-mostrarLista(state.dataAtual);
+function alterarStatus(idDoc,status){
+db.collection("agendamentos").doc(idDoc).update({status});
+}
+
+function cancelar(idDoc,criadoPor){
+if(state.tipo==="admin" || criadoPor===state.nome){
+db.collection("agendamentos").doc(idDoc).delete();
 }else alert("Somente quem agendou ou admin pode cancelar.");
 }
 
@@ -447,11 +357,11 @@ renderListaR();
 function renderListaR(){
 let div=document.getElementById("listaR");
 div.innerHTML="";
-recepcionistas.forEach((r,i)=>{
+recepcionistas.forEach(r=>{
 div.innerHTML+=`<div class="card">
 <b>${r.nome}</b><br>
 Senha: ${r.senha}<br>
-<button onclick="removerRecep(${i})">Excluir</button>
+<button onclick="db.collection('recepcionistas').doc('${r.idDoc}').delete()">Excluir</button>
 </div>`;
 });
 }
@@ -461,41 +371,13 @@ let nome=document.getElementById("nomeR").value.trim();
 let senha=document.getElementById("senhaR").value.trim();
 if(!nome||!senha) return alert("Preencha tudo");
 if(recepcionistas.find(r=>r.nome===nome)) return alert("Nome já existe");
-recepcionistas.push({nome,senha});
-localStorage.setItem("recepcionistas",JSON.stringify(recepcionistas));
-renderListaR();
+db.collection("recepcionistas").add({nome,senha});
 }
 
-function removerRecep(i){
-recepcionistas.splice(i,1);
-localStorage.setItem("recepcionistas",JSON.stringify(recepcionistas));
-renderListaR();
-}
-
-function salvar(){
-localStorage.setItem("agendamentos",JSON.stringify(agendamentos));
-localStorage.setItem("bloqueios",JSON.stringify(bloqueios));
-}
-
-function mesAnt(){
-state.mes--;
-if(state.mes<0){state.mes=11;state.ano--;}
-renderCalendario();
-}
-
-function mesProx(){
-state.mes++;
-if(state.mes>11){state.mes=0;state.ano++;}
-renderCalendario();
-}
-
-function formatar(a,m,d){
-return a+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
-}
-
-function nomeMes(m){
-return["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"][m];
-}
+function mesAnt(){state.mes--;if(state.mes<0){state.mes=11;state.ano--;}renderCalendario();}
+function mesProx(){state.mes++;if(state.mes>11){state.mes=0;state.ano++;}renderCalendario();}
+function formatar(a,m,d){return a+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");}
+function nomeMes(m){return["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"][m];}
 
 </script>
 </body>
