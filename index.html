@@ -212,9 +212,9 @@ grid.appendChild(div);
 
 function clicarDia(data){
 
-  if(state.modo==="bloqDia"){
+  if(state.modo === "bloqDia"){
 
-    let existe=bloqueios.find(b=>b.data===data && b.tipo==="dia");
+    let existe = bloqueios.find(b=>b.data===data && b.tipo==="dia");
 
     if(!existe){
       db.collection("bloqueios").add({data,tipo:"dia"});
@@ -222,7 +222,7 @@ function clicarDia(data){
       db.collection("bloqueios").doc(existe.idDoc).delete();
     }
 
-    // 🔥 FORÇA FICAR NO CALENDÁRIO
+    renderCalendario();
     return;
   }
 
