@@ -308,11 +308,7 @@ if(!nome) return;
 let telefone=prompt("Telefone do aluno (somente números):");
 if(!telefone) return;
 
-let id=prompt("ID numérico até 10 dígitos:");
-if(!/^[0-9]{1,10}$/.test(id)) return alert("ID inválido");
-
-let existe=agendamentos.find(a=>a.id===id);
-if(existe && existe.nome!==nome) return alert("ID já vinculado a outro nome");
+let id=prompt("ID (opcional):") || "";
 
 db.collection("agendamentos").add({
 nome,
